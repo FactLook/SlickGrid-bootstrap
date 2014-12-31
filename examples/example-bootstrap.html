@@ -3,8 +3,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>SlickGrid example: Twitter Bootstrap support</title>
-  <link rel="stylesheet" href="dist/components/bootstrap/docs/assets/css/bootstrap.css" type="text/css"/>
-  <link rel="stylesheet" href="dist/components/slickgrid/slick.grid.css" type="text/css"/>
+  <link rel="stylesheet" href="dist/bootstrap.css" type="text/css"/>
+  <link rel="stylesheet" href="dist/slick.grid.css" type="text/css"/>
   <link rel="stylesheet" href="dist/example-bootstrap.css" type="text/css"/>
   <style rel="stylesheet" type="text/css">
     .grid-col {
@@ -13,6 +13,7 @@
     .info-col {
       padding: 20px;
     }
+
   </style>
 </head>
 <body>
@@ -70,8 +71,8 @@
     </td>
   </tr>
 </table>
-<script src="dist/components/jquery/jquery.js"></script>
-<script src="dist/components/slickgrid/lib/jquery.event.drag-2.0.min.js"></script>
+<script src="dist/jquery.js"></script>
+<script src="dist/jquery.event.drag-2.2.js"></script>
 <!-- From jQuery UI, we only need:
             jquery.ui.core.js
             jquery.ui.widget.js
@@ -79,17 +80,17 @@
             jquery.ui.resizable.js
             jquery.ui.sortable.js
 -->
-<script src="dist/components/jquery-ui/ui/jquery.ui.core.js"></script>
-<script src="dist/components/jquery-ui/ui/jquery.ui.widget.js"></script>
-<script src="dist/components/jquery-ui/ui/jquery.ui.mouse.js"></script>
-<script src="dist/components/jquery-ui/ui/jquery.ui.resizable.js"></script>
-<script src="dist/components/jquery-ui/ui/jquery.ui.sortable.js"></script>
+<script src="dist/jquery.ui.core.js"></script>
+<script src="dist/jquery.ui.widget.js"></script>
+<script src="dist/jquery.ui.mouse.js"></script>
+<script src="dist/jquery.ui.resizable.js"></script>
+<script src="dist/jquery.ui.sortable.js"></script>
 <!-- slickgrid -->
-<script src="dist/components/slickgrid/slick.core.js"></script>
-<script src="dist/components/slickgrid/slick.grid.js"></script>
-<script src="dist/components/slickgrid/slick.dataview.js"></script>
-<script src="dist/components/slickgrid/plugins/slick.checkboxselectcolumn.js"></script>
-<script src="dist/components/slickgrid/plugins/slick.rowselectionmodel.js"></script>
+<script src="dist/slick.core.js"></script>
+<script src="dist/slick.grid.js"></script>
+<script src="dist/slick.dataview.js"></script>
+<script src="dist/slick.checkboxselectcolumn.js"></script>
+<script src="dist/slick.rowselectionmodel.js"></script>
 <!-- bootstrap helper -->
 <script src="../bootstrap/bootstrap-slickgrid.js"></script>
 <script>
@@ -208,13 +209,13 @@ jQuery(function ($) {
       dataView.beginUpdate();
       dataView.setItems(o.data);
       dataView.endUpdate();
-      
+
       grid.resizeCanvas(); // XXX Why is this needed? A possible bug?
                            // If this is missing, the grid will have
                            // a horizontal scrollbar, and the vertical
                            // scrollbar cannot be moved. A column reorder
                            // action fixes the situation.
-      
+
     }
 
   });
@@ -236,7 +237,7 @@ jQuery(function ($) {
     sortDir: true,
     handleCreate: function () {
       var o = this.wrapperOptions;
-    
+
       // checkbox column: add it
       var columns = o.columns.slice();
       var checkboxSelector = new Slick.CheckboxSelectColumn({});
@@ -275,7 +276,7 @@ jQuery(function ($) {
       dataView.beginUpdate();
       dataView.setItems(o.data);
       dataView.endUpdate();
-      
+
       // if you don't want the items that are not visible (due to being filtered out
       // or being on a different page) to stay selected, pass 'false' to the second arg
       dataView.syncGridSelection(grid, true);
@@ -285,7 +286,7 @@ jQuery(function ($) {
                            // a horizontal scrollbar, and the vertical
                            // scrollbar cannot be moved. A column reorder
                            // action fixes the situation.
-      
+
     }
 
   });

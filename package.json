@@ -12,7 +12,6 @@
         "grunt-contrib-concat": "*",
         "grunt-contrib-less": "*",
         "grunt-contrib-watch": "*",
-        "grunt-collection-helper": "*",
         "buster": "*"
     }
 }

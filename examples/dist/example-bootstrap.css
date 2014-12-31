@@ -1,4 +1,4 @@
-/* 
+/*
  * This file is generated from examples/example-bootstrap.less.
  * Do not edit the .css file, instead, edit the .less file and
  * recompile it!
@@ -6,10 +6,10 @@
 /* Needs to import variables.less for font size and colors.
  * The following values will be used:
 
-@baseFontSize:          14px;
+@font-size-base:        14px;
 @tableBorder:           #ddd; // table and cell border
 @linkColor:             #08c;
-@tableBackgroundAccent: #f9f9f9; // for striping
+@table-bg-accent:       #f9f9f9; // for striping
 @grayDark:              #333;
 @textColor:             @grayDark;
 @navbarLinkColorHover:  @grayDark;
@@ -18,19 +18,18 @@
 /* Mixins for SlickGrid */
 /* Used from variables.less:
  *
- * @baseFontSize (unless, font size is passed as an option)
- * @tableBorder
- * @linkColor
- * @tableBackgroundAccent
- * @textColor
- * @navbarLinkColorHover
+ * @font-size-base (unless, font size is passed as an option)
+ * @table-border-color
+ * @link-color
+ * @table-bg-accent
+ * @text-color
  *
  * This means that if you have an updated variable.less, the grid will
  * follow your changes.
  *
  * Example usage:
  *
- * 
+ *
     @import "variables.less";
     @import "../bootstrap/slickgrid.less";
 
@@ -43,7 +42,7 @@
         .SlickGrid();
 
         // Add a bottom border to the grid.
-        border-bottom: 1px solid @tableBorder;
+        border-bottom: 1px solid @table-border-color;
     }
 
  *
@@ -54,6 +53,11 @@
   position: relative;
   border-bottom: 1px solid #dddddd;
 }
+.grid div {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
 .grid input[type="checkbox"] {
   vertical-align: baseline;
   margin: 0;
@@ -63,7 +67,6 @@
 }
 .grid .grid-canvas {
   /* XXX ... needed ? */
-
 }
 .grid .grid-canvas .slick-row {
   border: 0 none;
@@ -94,12 +97,12 @@ body .grid .grid-canvas .slick-cell {
 .grid .grid-canvas .slick-cell a:visited,
 .grid .grid-canvas .slick-cell .ui-widget-content a,
 .grid .grid-canvas .slick-cell .ui-widget-content a:visited {
-  color: #0088cc;
+  color: #337ab7;
   text-decoration: none;
 }
 .grid .grid-canvas .slick-cell a:hover,
 .grid .grid-canvas .slick-cell .ui-widget-content a:hover {
-  color: #005580;
+  color: #23527c;
   text-decoration: none;
   border-bottom: none;
 }
@@ -128,7 +131,6 @@ body .grid .grid-canvas .slick-cell {
   margin: 0;
   border: 0;
   /* like TH  */
-
   background: transparent;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333333;
@@ -154,7 +156,6 @@ body .grid .slick-header-columns .slick-header-column.ui-state-default {
 }
 .grid .slick-header-columns .slick-header-column.ui-state-default {
   /* like TH  */
-
   background: transparent;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333333;
@@ -178,7 +179,7 @@ body .grid .slick-header-columns .slick-header-column.ui-state-default {
 .grid .slick-header-columns .slick-header-column .slick-sort-indicator-asc {
   vertical-align: middle;
 }
-.grid .slick-header-columns .slick-header-column .slick-sort-indicator-desc {
+.grid .slick-header-columns .slick-header-column      .slick-sort-indicator-desc {
   vertical-align: middle;
 }
 .grid-col {
@@ -186,4 +187,10 @@ body .grid .slick-header-columns .slick-header-column.ui-state-default {
 }
 .info-col {
   padding: 20px;
+}
+[class^="slickgrid_"],
+[class^="slickgrid_"] div {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }

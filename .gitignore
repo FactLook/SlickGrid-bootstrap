@@ -2,6 +2,6 @@
 .idea/*
 .DS_Store
 node_modules
-/components
+bower_components
 *.sublime-project
 *.sublime-workspace

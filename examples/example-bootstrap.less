@@ -1,4 +1,4 @@
-/* 
+/*
  * This file is generated from examples/example-bootstrap.less.
  * Do not edit the .css file, instead, edit the .less file and
  * recompile it!
@@ -7,16 +7,16 @@
 /* Needs to import variables.less for font size and colors.
  * The following values will be used:
 
-@baseFontSize:          14px;
+@font-size-base:        14px;
 @tableBorder:           #ddd; // table and cell border
 @linkColor:             #08c;
-@tableBackgroundAccent: #f9f9f9; // for striping
+@table-bg-accent:       #f9f9f9; // for striping
 @grayDark:              #333;
 @textColor:             @grayDark;
 @navbarLinkColorHover:  @grayDark;
 
 */
-@import "../components/bootstrap/less/variables.less";
+@import "../bower_components/bootstrap/less/variables.less";
 @import "../bootstrap/slickgrid.less";
 
 .grid {
@@ -28,7 +28,7 @@
     .SlickGrid();
 
     // Add a bottom border to the grid.
-    border-bottom: 1px solid @tableBorder;
+    border-bottom: 1px solid @table-border-color;
 }
 
 .grid-col {
@@ -38,3 +38,9 @@
   padding: 20px;
 }
 
+[class^="slickgrid_"],
+[class^="slickgrid_"] div {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+     box-sizing: content-box;
+}
