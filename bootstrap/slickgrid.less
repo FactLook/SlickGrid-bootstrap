@@ -3,19 +3,18 @@
 
 /* Used from variables.less:
  *
- * @baseFontSize (unless, font size is passed as an option)
- * @tableBorder
- * @linkColor
- * @tableBackgroundAccent
- * @textColor
- * @navbarLinkColorHover
+ * @font-size-base (unless, font size is passed as an option)
+ * @table-border-color
+ * @link-color
+ * @table-bg-accent
+ * @text-color
  *
  * This means that if you have an updated variable.less, the grid will
  * follow your changes.
  *
  * Example usage:
  *
- * 
+ *
     @import "variables.less";
     @import "../bootstrap/slickgrid.less";
 
@@ -28,23 +27,29 @@
         .SlickGrid();
 
         // Add a bottom border to the grid.
-        border-bottom: 1px solid @tableBorder;
+        border-bottom: 1px solid @table-border-color;
     }
 
  *
  */
 
-.SlickGrid (@fontSize:@baseFontSize,
-            @headerColumnHeight:20px) {
+.SlickGrid (@font-size:@font-size-base,
+            @header-column-height:20px) {
+
+    div {
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+    }
 
     position: relative;
 
     .SlickCell () {
         // reset some essentials.
         padding: 5px 7.5834px;
-        font-size: @fontSize;
+        font-size: @font-size;
         td {
-            font-size: @fontSize;
+            font-size: @font-size;
         }
         body & {
             line-height: 20px;
@@ -62,7 +67,7 @@
 
     .slick-viewport {
         // Add a top border to visually separate the headers.
-        border-top: 1px solid @tableBorder;
+        border-top: 1px solid @table-border-color;
     }
 
     .grid-canvas {
@@ -73,24 +78,24 @@
         }
         .slick-cell, .slick-headerrow-column {
             border-top: 0;
-            border-bottom: 1px solid @tableBorder;
+            border-bottom: 1px solid @table-border-color;
             border-left: 0;
             border-right: 0;
         }
         .even {
-            background: @tableBackgroundAccent;
+            background: @table-bg-accent;
         }
-        
+
 
         /* XXX ... needed ? */
         .slick-cell {
             .SlickCell ();
             a, a:visited, .ui-widget-content a, .ui-widget-content a:visited {
-                color: @linkColor;
+                color: @link-color;
                 text-decoration: none;
             }
             a:hover, .ui-widget-content a:hover {
-                color: @linkColorHover;
+                color: @link-hover-color;
                 text-decoration: none;
                 border-bottom: none;
             }
@@ -108,47 +113,47 @@
             }
         }
     }
- 
+
     .slick-header {
         border-top: 0;
         border-bottom: 0;
     }
 
     .slick-header-columns {
-        background: @tableBackground;
+        background: @table-bg;
 
         .slick-header-column {
-            height: @headerColumnHeight;
-            line-height: @fontSize;
+            height: @header-column-height;
+            line-height: @font-size;
             margin: 0;
             border: 0;
             &.ui-state-default {
                 .SlickCell ();
             }
 
-            @slickgridHoverHeaderColor: @textColor;
-            @slickgridSortingHeaderColor: @textColor;
-            
+            @slickgridHoverHeaderColor: @text-color;
+            @slickgridSortingHeaderColor: @text-color;
+
             .ResetColumns () {
                 /* like TH  */
-                background: @tableBackground;
-                font-family: @sansFontFamily;
-                color: @textColor;
+                background: @table-bg;
+                font-family: @font-family-sans-serif;
+                color: @text-color;
                 font-weight: bold;
                 text-shadow: 0 -1px 0 rgba(0,0,0,.4);
                 a, a:visited {
-                    color: @textColor;
+                    color: @text-color;
                 }
                 a:hover {
                     color: @slickgridHoverHeaderColor;
-                }    
+                }
             }
- 
+
             .ResetColumns ();
             &.ui-state-default {
                 .ResetColumns ();
             }
-           
+
             &.slick-header-column-sorted {
                 font-style: normal;
                 color: @slickgridSortingHeaderColor;
@@ -168,8 +173,7 @@
             .slick-sort-indicator-desc {
                 vertical-align: middle;
             }
-           
+
         }
     }
-
 }
